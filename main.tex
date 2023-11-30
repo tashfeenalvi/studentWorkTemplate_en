@@ -1,0 +1,162 @@
+% ---------------------------------------------------------------------------- %
+% DOCUMENT SETUP
+% ---------------------------------------------------------------------------- %
+\documentclass[a4paper,11pt,parskip=false, oneside]{scrbook}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{subcaption}
+\usepackage{pgfplots}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{setspace}
+\usepackage{changepage}
+\usepackage{longtable}
+\usepackage{booktabs}
+
+%code formatting in latex:
+\usepackage{listings}
+\lstset { %
+    language=C++,
+    basicstyle=\footnotesize,% basic font setting
+    numbers=left,
+    frame=tb,
+}
+
+% tikz pictures and own defined colors
+\usepackage{tikz} %loads also xcolor
+\definecolor{darkblue}{rgb}{0.047, 0.337, 0.678}
+\definecolor{darkgreen}{rgb}{0.13,0.55,0.13}
+\definecolor{darkorange}{rgb}{0.93,0.46,0}
+
+% package for setting margins at the sides, top and bottom
+\usepackage[left=3cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
+
+% hyperlinks to sections in pdf file
+\usepackage[bookmarksnumbered,pdftitle={Bachelor's Thesis},hyperfootnotes=false]{hyperref} 
+\hypersetup{colorlinks, citecolor=black, linkcolor=black, urlcolor=black}
+
+
+% citation style
+\bibliographystyle{abbrvdin}
+
+\setcounter{secnumdepth}{1}
+\setcounter{tocdepth}{1}
+
+% Some fixes for the warnings
+\usepackage{scrhack}
+\pgfplotsset{compat=1.16}
+\pdfsuppresswarningpagegroup=1
+
+\onehalfspacing
+
+% ---------------------------------------------------------------------------- %
+% Blank pages
+% ---------------------------------------------------------------------------- %
+
+ \newcommand*{\blankpage}{%
+	\vspace*{\fill}
+	{\centering This page intentionally left blank.\par}
+	\vspace{\fill}}
+\makeatletter
+\renewcommand*{\cleardoublepage}{\clearpage\if@twoside \ifodd\c@page\else
+	\blankpage
+	\thispagestyle{empty}
+	\newpage
+	\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+
+
+\begin{document}
+
+% ---------------------------------------------------------------------------- %
+% TEXT SETUP AND LISTS
+% ---------------------------------------------------------------------------- %
+% Trennvorschläge
+\input{./includes/hyphenation}
+
+% empty page at the beginning (optional)
+%\newpage
+%\thispagestyle{empty}
+%\section*{ }
+
+% Cover page %
+\input{./includes/coverPage}
+
+% Abstract
+\singlespacing
+\normalsize
+\input{./includes/0_abstract}
+
+% roman page numbering
+\pagenumbering{roman}
+
+% Draw Table of Contents
+\newpage
+\tableofcontents
+
+% Lists in TOC
+\addcontentsline{toc}{chapter}{Lists}
+% List of Figures
+\addcontentsline{}{section}{List of Figures}
+\listoffigures
+
+% List of Tables
+\addcontentsline{}{section}{List of Tables}
+\listoftables
+
+% Abbreviations
+\input{./includes/abbreviations}
+\input{./includes/formulas}
+\clearpage
+
+% ---------------------------------------------------------------------------- %
+% MAIN CONTENTS
+% ---------------------------------------------------------------------------- %
+
+\onehalfspacing
+\pagenumbering{arabic}
+
+\input{./includes/templates}
+
+\input{./includes/1_introduction}
+
+% ---------------------------------------------------------------------------- %
+% BIBLIOGRAPHY AND APPENDIX
+% ---------------------------------------------------------------------------- %
+
+\onecolumn
+\singlespacing
+% Show Bibliography in TOC
+\newpage
+\addcontentsline{toc}{chapter}{Bibliography}
+% Literaturverzeichnis anzeigen
+\renewcommand\bibname{Bibliography}
+\bibliography{main.bib}
+%show all Literature entries in Bibliography
+\nocite{*}
+
+
+\onehalfspacing
+\newpage
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+\appendix
+\input{./includes/2_appendix}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+
+% ---------------------------------------------------------------------------- %
+% OTHERS
+% ---------------------------------------------------------------------------- %
+
+\input{./includes/3_declarationAuthorEN}
+
+% empty page at the end (optional)
+\newpage
+\thispagestyle{empty}
+\section*{ }
+
+\end{document}          

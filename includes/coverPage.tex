@@ -1,0 +1,60 @@
+\thispagestyle{empty}
+\newcommand{\titelseite}[2]{
+\begin{tikzpicture}[overlay]
+\draw [rounded corners, line width=0.05cm, color=darkblue] (-1.2,-25.8) -- (-1.2,-4) -- (16,-4) -- (16, -24.3);
+\node [right] at (-1.2,0) {\includegraphics[height=1.5cm]{./figures/uni-logo.pdf}};
+\node [left] at (16.025,0) {\includegraphics[height=1.4cm]{./figures/lsbLogo.pdf}};
+\draw [fill=darkblue, color=darkblue](-1.2,-25.8) -- (-1.2,-25.5) --(-1.2,-23.8)-- (16.025, -23.8)--(16.025,-25.8);
+\node [right, white] at (0,-24.25) {\large{\textsc{#1}}};
+\node [right, white] at (0,-25.25) {\large{\textsc{#2}}};
+\end{tikzpicture}
+}
+\newcommand{\titel}[2]{
+\begin{center}
+\doublespacing
+\textcolor{darkblue}{\huge{#1}}\\[1cm]
+\textcolor{darkblue}{\Large{\textit{#2}}}\\[3.9cm]
+\singlespacing
+\end{center}
+}
+
+\begin{titlepage}
+
+\titelseite{Bachelor's Thesis}{University of Rostock}
+
+\vspace*{5cm}
+
+\titel{A highly interesting title here: the title should represent the main task of this work. E.g. Conception of a local zero emission ferry } {here the actual output of the this thesis could be stated, e.g. Methodoloy for Ship Design based on the Gehlsdorf - andere Seite - route }
+
+\vspace{3cm}
+
+
+\begin{tabular}{p{3.2cm}|p{0.1cm} p{10.5cm}l}
+Name: & & Max Mustermann\\
+Student ID: & & 219903992\\
+Subject: & & Advanced Design of Ships and Offshore Structures\\
+E-Mail: & & name.name@uni-rostock.de\\
+Supervisors: & & Prof. Dr.-Ing. Florian Sprenger\\
+ & & M.Sc. ABC\\
+Chair: & & Ship Design\\
+Faculty: & & Faculty of mechanical engineering and marine technology\\
+Thesis schedule: & & 20 weeks\\
+Submission: & & 01.01.1001\\
+\end{tabular}
+\end{titlepage}
+
+\restoregeometry
+
+\newpage
+\thispagestyle{empty} \enlargethispage{20mm} \vspace*{25mm}%
+\normalsize
+\phantom{x}
+\vfill
+\noindent Copyright \copyright\ \the\year, Max Mustermann\\
+All rights reserved, text, pictures and graphics are protected
+material.
+\\[10mm]
+Max Mustermann\\
+\makeatletter{name.name@uni-rostock.de}\makeatother \\[5mm]
+\vspace{10mm} \noindent \scriptsize This document was set with \LaTeX on \today.
+\clearpage
